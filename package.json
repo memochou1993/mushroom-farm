@@ -1,16 +1,20 @@
 {
-  "name": "tapioca",
+  "name": "mushroom",
   "version": "1.0.0",
   "description": "",
   "main": "truffle-config.js",
   "scripts": {
     "build": "truffle compile",
-    "deploy": "truffle deploy"
+    "deploy": "truffle deploy",
+    "lint:sol": "solium -d contracts",
+    "lint:js": "eslint src migrations",
+    "lint": "npm run lint:sol && npm run lint:js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "ethlint": "^1.2.5",
     "truffle": "^5.4.6"
   }
 }
