@@ -1,0 +1,9 @@
+{
+  "main": "./contracts/Coin.sol",
+  "deploy": "./build/contracts/Coin.json",
+  "framework": "truffle",
+  "compilers": {
+    "solc": "0.6.12"
+  },
+  "npmClient": "npm"
+}
