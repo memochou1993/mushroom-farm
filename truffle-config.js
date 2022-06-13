@@ -1,20 +1,20 @@
-const config = require('./config.json');
-
 module.exports = {
-  compilers: {
-    solc: {
-      version: config.compilers.solc,
-      settings: {
-        optimizer: config.compilers.optimizer,
-        evmVersion: config.compilers.evmVersion,
-      },
-    },
-  },
   networks: {
     development: {
       host: '127.0.0.1',
-      port: 62743,
+      port: 7545,
       network_id: '*',
+    },
+  },
+  compilers: {
+    solc: {
+      version: '0.8.13',
+      settings: {
+        optimizer: {
+          enabled: false,
+          runs: 200,
+        },
+      },
     },
   },
 };
