@@ -31,7 +31,7 @@ contract Mushroom {
     }
 
     function initialize(uint _startTime) onlyOwner public {
-        require(marketMushrooms == 0);
+        require(marketMushrooms == 0, "already initialized");
         startTime = _startTime;
         marketMushrooms = 86400000000;
     }
@@ -42,10 +42,10 @@ contract Mushroom {
         uint256 fee = getDevFee(msg.value);
         payable(owner).transfer(fee);
         claimedMushrooms[msg.sender] += value;
-        splitMushrooms(_ref);
+        multiplyMushrooms(_ref);
     }
 
-    function splitMushrooms(address _ref) onlyInitialized public {
+    function multiplyMushrooms(address _ref) onlyInitialized public {
         if (_ref == msg.sender || _ref == address(0) || farmers[_ref] == 0) {
             _ref = owner;
         }
@@ -53,7 +53,8 @@ contract Mushroom {
             referrals[msg.sender] = _ref;
         }
         uint256 used = getMyMushrooms();
-        farmers[msg.sender] += used / period;
+        uint256 newFarmers = used / period;
+        farmers[msg.sender] += newFarmers;
         claimedMushrooms[msg.sender] = 0;
         lastHarvest[msg.sender] = block.timestamp;
         claimedMushrooms[referrals[msg.sender]] += used * 15 / 100;
