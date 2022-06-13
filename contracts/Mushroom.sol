@@ -79,7 +79,7 @@ contract Mushroom {
     }
 
     function getDevFee(uint256 _amount) public pure returns (uint256) {
-        return _amount * 3 / 100;
+        return _amount * 2 / 100;
     }
 
     function getBalance() public view returns (uint256) {
