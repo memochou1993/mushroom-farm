@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract Mushroom {
+contract MushroomFarm {
     address public owner;
     uint256 public period = 864000;
     uint256 public startTime = 2000000000;

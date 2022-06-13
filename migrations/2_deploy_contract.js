@@ -1,5 +1,5 @@
-const Mushroom = artifacts.require('Mushroom');
+const MushroomFarm = artifacts.require('MushroomFarm');
 
 module.exports = (deployer) => {
-  deployer.deploy(Mushroom);
+  deployer.deploy(MushroomFarm);
 };
